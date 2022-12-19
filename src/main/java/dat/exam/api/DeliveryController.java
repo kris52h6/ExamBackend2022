@@ -31,4 +31,14 @@ public class DeliveryController {
     public DeliveryDTO addDelivery(@RequestBody DeliveryDTO deliveryDTO) {
         return deliveryService.addDelivery(deliveryDTO);
     }
+
+    @GetMapping("/assigned")
+    public List<DeliveryDTO> getDeliveriesIfVanAssigned() {
+        return deliveryService.getDeliveriesIfVanAssigned();
+    }
+
+    @PostMapping("/van/{vanId}")
+    public DeliveryDTO addDeliveryToVan(@RequestBody DeliveryDTO deliveryDTO, @PathVariable int vanId) {
+        return deliveryService.addDeliveryToVan(deliveryDTO, vanId);
+    }
 }

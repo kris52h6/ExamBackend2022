@@ -24,6 +24,7 @@ public class DeliveryDTO {
     private String fromWareHouse;
     private String destination;
     private List<Integer> productOrderIds;
+    private Integer vanId;
 
     public static Delivery getDeliveryEntity(DeliveryDTO d) {
         return new Delivery(
@@ -37,6 +38,9 @@ public class DeliveryDTO {
         this.deliveryDate = d.getDeliveryDate();
         this.fromWareHouse = d.getFromWareHouse();
         this.destination = d.getDestination();
+        if (d.getVan() != null) {
+            this.vanId = d.getVan().getId();
+        }
         if (d.getProductOrderList() != null) {
             this.productOrderIds = d.getProductOrderList().stream().map(o -> o.getId()).toList();
         }

@@ -31,4 +31,9 @@ public class ProductOrder {
     public void addQuantity(int quantity) {
         this.quantity += quantity;
     }
+
+    public double getWeight() {
+        return quantity * product.getWeight();
+    }
+
 }
