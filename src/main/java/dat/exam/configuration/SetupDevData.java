@@ -34,7 +34,7 @@ public class SetupDevData implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        setupData();
+        //setupData();
     }
 
     private void setupData() {
@@ -72,9 +72,6 @@ public class SetupDevData implements ApplicationRunner {
         deliveryRepository.save(d1);
         deliveryRepository.save(d2);
         deliveryRepository.save(d3);
-
-
-
 
     }
 
