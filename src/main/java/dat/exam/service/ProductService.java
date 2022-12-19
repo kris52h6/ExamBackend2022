@@ -35,7 +35,7 @@ public class ProductService {
         return new ProductDTO(newProduct, true);
     }
 
-    public ProductDTO deleteProduct(int productId) {
+    public ProductDTO deleteProductById(int productId) {
         Product productToBeDeleted = productRepository
                 .findById(productId)
                 .orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produkt med id " + productId + " ikke fundet"));
