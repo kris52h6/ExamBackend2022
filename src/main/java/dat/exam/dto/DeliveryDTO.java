@@ -1,5 +1,6 @@
 package dat.exam.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import dat.exam.entity.Delivery;
 import dat.exam.entity.ProductOrder;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DeliveryDTO {
     private Integer id;
     private LocalDate deliveryDate;
@@ -23,11 +25,21 @@ public class DeliveryDTO {
     private String destination;
     private List<Integer> productOrderIds;
 
+    public static Delivery getDeliveryEntity(DeliveryDTO d) {
+        return new Delivery(
+                d.getDeliveryDate(),
+                d.getFromWareHouse(),
+                d.getDestination()
+        );
+    }
+
     public DeliveryDTO(Delivery d, boolean includeAll) {
         this.deliveryDate = d.getDeliveryDate();
         this.fromWareHouse = d.getFromWareHouse();
         this.destination = d.getDestination();
-        this.productOrderIds = d.getProductOrderList().stream().map(o -> o.getId()).toList();
+        if (d.getProductOrderList() != null) {
+            this.productOrderIds = d.getProductOrderList().stream().map(o -> o.getId()).toList();
+        }
         if (includeAll) {
             this.id = d.getId();
         }

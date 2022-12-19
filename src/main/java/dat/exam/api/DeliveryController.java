@@ -26,4 +26,9 @@ public class DeliveryController {
     public DeliveryDTO getDeliveryById(@PathVariable int deliveryId) {
         return deliveryService.getDeliveryById(deliveryId);
     }
+
+    @PostMapping
+    public DeliveryDTO addDelivery(@RequestBody DeliveryDTO deliveryDTO) {
+        return deliveryService.addDelivery(deliveryDTO);
+    }
 }

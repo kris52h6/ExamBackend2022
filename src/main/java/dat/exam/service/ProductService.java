@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     public ProductDTO addProduct(ProductDTO productDTO) {
-        Product newProduct = productDTO.getProductEntity(productDTO);
+        Product newProduct = ProductDTO.getProductEntity(productDTO);
         productRepository.save(newProduct);
         return new ProductDTO(newProduct, true);
     }

@@ -27,4 +27,10 @@ public class DeliveryService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Delivery not found"));
         return new DeliveryDTO(deliveryFound, true);
     }
+
+    public DeliveryDTO addDelivery(DeliveryDTO deliveryDTO) {
+        Delivery newDelivery = DeliveryDTO.getDeliveryEntity(deliveryDTO);
+        deliveryRepository.save(newDelivery);
+        return new DeliveryDTO(newDelivery, false);
+    }
 }
