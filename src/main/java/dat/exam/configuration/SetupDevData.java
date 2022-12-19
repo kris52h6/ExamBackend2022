@@ -48,7 +48,9 @@ public class SetupDevData implements ApplicationRunner {
         deliveryRepository.save(d1);
 
         ProductOrder po1 = new ProductOrder(1, p1, d1);
+        ProductOrder po2 = new ProductOrder(4, p2, d1);
         productOrderRepository.save(po1);
+        productOrderRepository.save(po2);
 
     }
 

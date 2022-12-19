@@ -1,5 +1,7 @@
 package dat.exam.dto;
 
+import dat.exam.entity.Delivery;
+import dat.exam.entity.Product;
 import dat.exam.entity.ProductOrder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,12 +13,20 @@ import lombok.Setter;
 public class ProductOrderDTO {
     private Integer id;
     private Integer quantity;
-    private Integer productId;
+    private String productName;
     private Integer deliveryId;
+
+    public static ProductOrder getProductOrderEntity(ProductOrderDTO productOrderDTO, Product product, Delivery delivery) {
+        return new ProductOrder(
+                productOrderDTO.getQuantity(),
+                product,
+                delivery
+        );
+    }
 
     public ProductOrderDTO(ProductOrder po, boolean includeAll) {
         this.quantity = po.getQuantity();
-        this.productId = po.getProduct().getId();
+        this.productName = po.getProduct().getName();
         this.deliveryId = po.getDelivery().getId();
         if (includeAll) {
             this.id = po.getId();
