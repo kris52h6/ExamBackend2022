@@ -21,7 +21,7 @@ public class Delivery {
     private String fromWareHouse;
     private String destination;
 
-    @OneToMany(mappedBy = "delivery")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "delivery")
     private List<ProductOrder> productOrderList;
 
     public Delivery(LocalDate deliveryDate, String fromWareHouse, String destination) {

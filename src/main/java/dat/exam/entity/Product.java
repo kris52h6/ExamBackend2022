@@ -20,7 +20,7 @@ public class Product {
     private double price;
     private double weight;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product")
     private List<ProductOrder> productOrders;
 
     public Product(String name, double price, double weight) {
