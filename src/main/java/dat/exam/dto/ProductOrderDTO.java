@@ -14,6 +14,8 @@ public class ProductOrderDTO {
     private Integer id;
     private Integer quantity;
     private String productName;
+    private Double productPrice;
+    private Double productWeight;
     private Integer deliveryId;
 
     public static ProductOrder getProductOrderEntity(ProductOrderDTO productOrderDTO, Product product, Delivery delivery) {
@@ -28,6 +30,8 @@ public class ProductOrderDTO {
         this.quantity = po.getQuantity();
         this.productName = po.getProduct().getName();
         this.deliveryId = po.getDelivery().getId();
+        this.productPrice = po.getProduct().getPrice();
+        this.productWeight = po.getProduct().getWeight();
         if (includeAll) {
             this.id = po.getId();
         }

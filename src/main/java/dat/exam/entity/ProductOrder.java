@@ -27,4 +27,8 @@ public class ProductOrder {
         this.product = product;
         this.delivery = delivery;
     }
+
+    public void addQuantity(int quantity) {
+        this.quantity += quantity;
+    }
 }

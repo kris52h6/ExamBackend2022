@@ -49,4 +49,15 @@ public class ProductService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produkt med navn: " + productName + " ikke fundet"));
         return new ProductDTO(product, true);
     }
+
+    public ProductDTO editProduct(ProductDTO productDTO, int productId) {
+        Product productFound = productRepository.findById(productId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produkt ikke fundet"));
+        productFound.setName(productDTO.getName());
+        productFound.setPrice(productDTO.getPrice());
+        productFound.setWeight(productDTO.getWeight());
+        productRepository.save(productFound);
+        return new ProductDTO(productFound, true);
+    }
+
 }

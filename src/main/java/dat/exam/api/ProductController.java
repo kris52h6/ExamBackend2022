@@ -27,7 +27,7 @@ public class ProductController {
         return productService.getProductById(productId);
     }
 
-    @GetMapping("/name=/{productName}")
+    @GetMapping("/name/{productName}")
     public ProductDTO getProductByName(@PathVariable String productName) {
         return productService.getProductByName(productName);
     }
@@ -40,6 +40,11 @@ public class ProductController {
     @DeleteMapping("/{productId}")
     public ProductDTO deleteProduct(@PathVariable int productId) {
         return productService.deleteProductById(productId);
+    }
+
+    @PutMapping("/{productId}")
+    public ProductDTO editProduct(@RequestBody ProductDTO productDTO, @PathVariable int productId) {
+        return productService.editProduct(productDTO, productId);
     }
 
 

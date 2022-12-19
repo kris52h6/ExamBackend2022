@@ -1,16 +1,11 @@
 package dat.exam.configuration;
 
-import dat.exam.entity.Delivery;
-import dat.exam.entity.Product;
-import dat.exam.entity.ProductOrder;
 import dat.exam.repository.DeliveryRepository;
 import dat.exam.repository.ProductOrderRepository;
 import dat.exam.repository.ProductRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
-
-import java.time.LocalDate;
 
 @Controller
 public class SetupDevData implements ApplicationRunner {
@@ -33,7 +28,7 @@ public class SetupDevData implements ApplicationRunner {
     }
 
     private void setupData() {
-        Product p1 = new Product("Mælk", 10.50, 1000);
+        /*Product p1 = new Product("Mælk", 10.50, 1000);
         Product p2 = new Product("Toastbrød", 15, 500);
         Product p3 = new Product("Chokolade", 24.99, 200);
 
@@ -51,7 +46,7 @@ public class SetupDevData implements ApplicationRunner {
         ProductOrder po2 = new ProductOrder(4, p2, d1);
         productOrderRepository.save(po1);
         productOrderRepository.save(po2);
-
+*/
     }
 
 }

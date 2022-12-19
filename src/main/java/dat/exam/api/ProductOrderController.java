@@ -22,6 +22,11 @@ public class ProductOrderController {
         return productOrderService.getAllProductOrders();
     }
 
+    @GetMapping("/delivery/{deliveryId}")
+    public List<ProductOrderDTO> getProductOrdersByDeliveryId(@PathVariable int deliveryId) {
+        return productOrderService.getProductOrdersByDeliveryId(deliveryId);
+    }
+
     @PostMapping
     public ProductOrderDTO addProductOrder(@RequestBody ProductOrderDTO productOrderDTO) {
         return productOrderService.addProductOrder(productOrderDTO);
